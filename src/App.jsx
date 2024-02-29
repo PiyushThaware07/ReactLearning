@@ -1,18 +1,39 @@
-import React from 'react';
+import React, { createContext } from 'react';
 // CSS
 import "./App.css";
 // COMPONENTS
 import Navbar from './components/Navbar';
 import UseStateHook from "./components/UseStateHook";
 import UseEffectHook from './components/UseEffectHook';
+import UseLayoutEffect from './components/UseLayoutEffect';
+import UseRefHook from './components/UseRefHook';
+import Testing from './components/Testing';
+
+
+export const MyContext = createContext("MyContext");
+
 
 export default function App() {
+  const data = {
+    fname: "Piyush",
+    lname: "Thaware",
+    rollNo: 233
+  }
+
   return (
     <div className='main px-8 md:px-14 py-2'>
-      <Navbar />
+      {/* <Navbar />
       <Hero name="Piyush Thaware" />
       <UseStateHook />
-      <UseEffectHook />
+      <UseEffectHook /> 
+      <UseLayoutEffect />*/}
+
+      {/* <UseRefHook /> */}
+
+      <MyContext.Provider value={data} >
+        <Testing />
+      </MyContext.Provider>
+
     </div>
   )
 }
